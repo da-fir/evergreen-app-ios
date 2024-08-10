@@ -14,14 +14,14 @@
 		0C52E0CA2C661CC800C2A67F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52E0C82C661CC800C2A67F /* NetworkManager.swift */; };
 		0C52E0CD2C66BDEF00C2A67F /* LocalDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52E0CC2C66BDEF00C2A67F /* LocalDataService.swift */; };
 		0C52E0CF2C66C07700C2A67F /* BookDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52E0CE2C66C07700C2A67F /* BookDataService.swift */; };
-		0C52E0D22C66D23B00C2A67F /* DetailContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52E0D12C66D23B00C2A67F /* DetailContracts.swift */; };
 		0C52E0D42C66D26200C2A67F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52E0D32C66D26200C2A67F /* DetailView.swift */; };
-		0C52E0D62C66D26B00C2A67F /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52E0D52C66D26B00C2A67F /* DetailViewModel.swift */; };
 		0C52E0D82C66D27500C2A67F /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52E0D72C66D27500C2A67F /* DetailCoordinator.swift */; };
 		0C52E0DC2C66D2B900C2A67F /* BookSubmissionContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52E0DB2C66D2B900C2A67F /* BookSubmissionContracts.swift */; };
 		0C52E0DE2C66D2C700C2A67F /* BookSubmissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52E0DD2C66D2C700C2A67F /* BookSubmissionView.swift */; };
 		0C52E0E02C66D2D200C2A67F /* BookSubmissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52E0DF2C66D2D200C2A67F /* BookSubmissionViewModel.swift */; };
 		0C52E0E22C66D2E200C2A67F /* BookSubmissionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52E0E12C66D2E200C2A67F /* BookSubmissionCoordinator.swift */; };
+		2F0D79122C66E85700C9A79E /* Util+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D79112C66E85700C9A79E /* Util+Image.swift */; };
+		2F0D79142C6702A600C9A79E /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D79132C6702A600C9A79E /* DetailViewModel.swift */; };
 		2FCE1CE92C5E57CA00483264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE1CE82C5E57CA00483264 /* AppDelegate.swift */; };
 		2FCE1CEB2C5E57CA00483264 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE1CEA2C5E57CA00483264 /* SceneDelegate.swift */; };
 		2FCE1CF22C5E57CC00483264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FCE1CF12C5E57CC00483264 /* Assets.xcassets */; };
@@ -59,14 +59,14 @@
 		0C52E0C82C661CC800C2A67F /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0C52E0CC2C66BDEF00C2A67F /* LocalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalDataService.swift; path = EverGreen/LocalDataService.swift; sourceTree = SOURCE_ROOT; };
 		0C52E0CE2C66C07700C2A67F /* BookDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDataService.swift; sourceTree = "<group>"; };
-		0C52E0D12C66D23B00C2A67F /* DetailContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContracts.swift; sourceTree = "<group>"; };
 		0C52E0D32C66D26200C2A67F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		0C52E0D52C66D26B00C2A67F /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		0C52E0D72C66D27500C2A67F /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		0C52E0DB2C66D2B900C2A67F /* BookSubmissionContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSubmissionContracts.swift; sourceTree = "<group>"; };
 		0C52E0DD2C66D2C700C2A67F /* BookSubmissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSubmissionView.swift; sourceTree = "<group>"; };
 		0C52E0DF2C66D2D200C2A67F /* BookSubmissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSubmissionViewModel.swift; sourceTree = "<group>"; };
 		0C52E0E12C66D2E200C2A67F /* BookSubmissionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSubmissionCoordinator.swift; sourceTree = "<group>"; };
+		2F0D79112C66E85700C9A79E /* Util+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+Image.swift"; sourceTree = "<group>"; };
+		2F0D79132C6702A600C9A79E /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		2FCE1CE52C5E57CA00483264 /* EverGreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EverGreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FCE1CE82C5E57CA00483264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FCE1CEA2C5E57CA00483264 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,10 +136,9 @@
 		0C52E0D02C66D22200C2A67F /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				0C52E0D12C66D23B00C2A67F /* DetailContracts.swift */,
 				0C52E0D32C66D26200C2A67F /* DetailView.swift */,
-				0C52E0D52C66D26B00C2A67F /* DetailViewModel.swift */,
 				0C52E0D72C66D27500C2A67F /* DetailCoordinator.swift */,
+				2F0D79132C6702A600C9A79E /* DetailViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -161,6 +160,14 @@
 				0C52E0E12C66D2E200C2A67F /* BookSubmissionCoordinator.swift */,
 			);
 			path = BookSubmission;
+			sourceTree = "<group>";
+		};
+		2F0D79102C66E84A00C9A79E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2F0D79112C66E85700C9A79E /* Util+Image.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		2F6235EE2C5F6F700015C2E2 /* Resources */ = {
@@ -226,6 +233,7 @@
 		2FCE1D182C5E57E700483264 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2F0D79102C66E84A00C9A79E /* Util */,
 				0C52E0CB2C66BDD300C2A67F /* LocalData */,
 				0C52E0C52C661CA000C2A67F /* Network */,
 				2FCE1D212C5E6DF700483264 /* Coordinator */,
@@ -397,6 +405,7 @@
 				2FCE1D202C5E6DE300483264 /* AppCoordinator.swift in Sources */,
 				0C52E0DC2C66D2B900C2A67F /* BookSubmissionContracts.swift in Sources */,
 				0C52E0DE2C66D2C700C2A67F /* BookSubmissionView.swift in Sources */,
+				2F0D79122C66E85700C9A79E /* Util+Image.swift in Sources */,
 				0C52E0C42C661C5D00C2A67F /* BookListContracts.swift in Sources */,
 				0C52E0D42C66D26200C2A67F /* DetailView.swift in Sources */,
 				0C52E0CD2C66BDEF00C2A67F /* LocalDataService.swift in Sources */,
@@ -406,11 +415,10 @@
 				0C52E0CF2C66C07700C2A67F /* BookDataService.swift in Sources */,
 				0C52E0C12C661B9A00C2A67F /* BookListViewModel.swift in Sources */,
 				0C52E0D82C66D27500C2A67F /* DetailCoordinator.swift in Sources */,
-				0C52E0D22C66D23B00C2A67F /* DetailContracts.swift in Sources */,
 				2FCE1D252C5E6E4C00483264 /* Coordinator.swift in Sources */,
+				2F0D79142C6702A600C9A79E /* DetailViewModel.swift in Sources */,
 				2FCE1CE92C5E57CA00483264 /* AppDelegate.swift in Sources */,
 				2FCE1D272C5E6EE100483264 /* BookListCoordinator.swift in Sources */,
-				0C52E0D62C66D26B00C2A67F /* DetailViewModel.swift in Sources */,
 				2FCE1CEB2C5E57CA00483264 /* SceneDelegate.swift in Sources */,
 				0C52E0E02C66D2D200C2A67F /* BookSubmissionViewModel.swift in Sources */,
 			);

@@ -8,8 +8,15 @@
 import Combine
 import Foundation
 
-class BookListViewModel : ObservableObject {
+protocol BookListNavigationDelegate: NSObject {
+    func onOpenBookSubmission(input: BookSubmissionInput)
+    func onOpenBookDetail(book: BookModel)
+    func onBookWillDeleted(book: BookModel, completion: @escaping ((Bool) -> Void))
+}
+
+final class BookListViewModel : ObservableObject {
     //MARK: - Properties
+    private weak var navigationDelegate: BookListNavigationDelegate?
     private let networkService: NetworkManagerProtocol
     private let bookDataService: BookDataServiceProtocol
     private var cancellables: Set<AnyCancellable> = []
@@ -18,7 +25,8 @@ class BookListViewModel : ObservableObject {
     @Published var state: PageState = .loading
     @Published var lovedBooks: Set<Int>
     
-    init(networkManager: NetworkManagerProtocol, bookDataService: BookDataServiceProtocol) {
+    init(navigationDelegate: BookListNavigationDelegate, networkManager: NetworkManagerProtocol, bookDataService: BookDataServiceProtocol) {
+        self.navigationDelegate = navigationDelegate
         self.bookDataService = bookDataService
         self.networkService = networkManager
         
@@ -76,20 +84,51 @@ class BookListViewModel : ObservableObject {
             else {
                 return
             }
-            self.books.append(contentsOf: response)
+            
+            let cachedBooks = self.bookDataService.getCachedBooks() ?? []
+            // update and use cahce books
+            self.bookDataService.setCachedBooks(books: Array(Set(response + cachedBooks)))
+            self.books.append(contentsOf: self.bookDataService.getCachedBooks() ?? [])
             self.state = .success
-            self.bookDataService.setCachedBooks(books: self.books)
         }
         .store(in: &cancellables)
     }
     
     func addNewBook() {
-        let possibleId: Int = getPossibleId()
-        let book: BookModel = BookModel(id: getPossibleId(), title: UUID().uuidString, author: "author", description: "desc", cover: "cover", publicationDate: "NOW!")
+        navigationDelegate?.onOpenBookSubmission(input: BookSubmissionInput(bookId: getPossibleId(), delegate: self))
+    }
+    
+    func onBookTapped(_ book: BookModel) {
+        navigationDelegate?.onOpenBookDetail(book: book)
+    }
+    
+    func onBookWillDeleted(_ book: BookModel) {
+        navigationDelegate?.onBookWillDeleted(book: book, completion: { isConfirmed in
+            guard isConfirmed
+            else {
+                return
+            }
+            
+            // remove book from loved list
+            self.lovedBooks.remove(book.id)
+            self.bookDataService.setLovedBooks(ids: self.lovedBooks)
+            
+            self.books.removeAll(where: { book == $0 })
+            // update cahce books
+            self.bookDataService.setCachedBooks(books: self.books)
+        })
+        
     }
     
     private func getPossibleId() -> Int {
         let id: Int = books.map { $0.id }.max() ?? 0
         return id + 1
+    }
+}
+
+extension BookListViewModel: BookSubmissionActionDelegate {
+    func onBookSubmitted(result: BookModel) {
+        self.books.append(result)
+        self.bookDataService.setCachedBooks(books: self.books)
     }
 }

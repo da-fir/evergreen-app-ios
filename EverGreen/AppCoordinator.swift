@@ -27,12 +27,12 @@ final class AppCoordinator: Coordinator {
     }
     
     func openHomepage() {
-        let homepageCoordinator = HomepageCoordinator(navigationController: navigationController)
+        let BookListCoordinator = BookListCoordinator(navigationController: navigationController)
         children.removeAll()
         
-        homepageCoordinator.parentCoordinator = self
-        children.append(homepageCoordinator)
+        BookListCoordinator.parentCoordinator = self
+        children.append(BookListCoordinator)
         
-        homepageCoordinator.start()
+        BookListCoordinator.start()
     }
 }

@@ -36,40 +36,94 @@ struct BookListView: View {
                     .foregroundColor(.gray)
             }
             
+            Button {
+                viewModel.addNewBook()
+            } label: {
+                Text("Add New Book ...")
+                    .foregroundColor(.black)
+                    .bold()
+            }
+            
             ForEach(viewModel.books) { book in
-                HStack {
-                    //            AsyncImage(
-                    //                url: URL(string: user.avatar_url ?? ""),
-                    //                content: { image in
-                    //                    image.resizable()
-                    //                        .aspectRatio(contentMode: .fit)
-                    //                        .frame(width: 100, height: 100)
-                    //                },
-                    //                placeholder: {
-                    //                    ProgressView()
-                    //                        .frame(width: 100, height: 100)
-                    //                })
-                    //            .fixedSize()
-                    
-                    VStack(alignment: .leading) {
-                        Text(book.title)
-                            .font(.headline)
-                        
-                        Text(book.description)
-                            .font(.subheadline)
-                    }
-                    Spacer()
+                Button {
+                    viewModel.onBookTapped(book)
+                } label: {
+                    cellView(book: book)
+                }
+            }
+            
+            Button {
+                viewModel.addNewBook()
+            } label: {
+                Text("Add New Book ...")
+                    .foregroundColor(.black)
+                    .bold()
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func cellView(book: BookModel) -> some View {
+        VStack(spacing: 0) {
+            HStack {
+                Text(book.title + (book.isLocal ? " (Local Book)" : ""))
+                    .font(.headline)
+                
+                
+                if book.isLocal {
                     Button {
-                        
+                        viewModel.onBookWillDeleted(book)
+                    } label: {
+                        Image(systemName: "trash.circle.fill")
+                            .foregroundColor(.blue)
+                    }
+                    .frame(width: 40)
+                    .frame(height: 40)
+                }
+                
+                Spacer()
+            }
+            
+            HStack {
+                ZStack(alignment: .bottomTrailing) {
+                    AsyncImage(
+                        url: URL(string: book.cover),
+                        content: { image in
+                            image
+                                .resizable()
+                                .scaledToFill()
+                        },
+                        placeholder: {
+                            ActivityIndicator(isAnimating: true)
+                        })
+                    .padding(24)
+                    Button {
+                        viewModel.toggleLoved(book: book)
                     } label: {
                         Image(systemName: viewModel.isBookLoved(book) ? "heart.fill" : "heart")
                             .foregroundColor(.red)
-                            .onTapGesture {
-                                viewModel.toggleLoved(book: book)
-                            }
                     }
+                    .frame(width: 40)
+                    .frame(height: 40)
                 }
+                .frame(width: 100)
+                .frame(height: 100)
+                
+                
+                VStack(alignment: .leading) {
+                    Text("Author: " + book.author)
+                        .font(.footnote)
+                    Text("Release: " + book.displayDate)
+                        .font(.footnote)
+                    Text(book.description)
+                        .font(.subheadline)
+                        .lineLimit(3)
+                        .multilineTextAlignment(.leading)
+                    Spacer()
+                }
+                .padding()
             }
+            .padding()
         }
     }
 }
