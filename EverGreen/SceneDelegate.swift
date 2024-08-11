@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  EverGreen
 //
-//  Created by Destriana Orchidea on 03/08/24.
+//  Created by Darul Firmansyah on 03/08/24.
 //
 
 import UIKit

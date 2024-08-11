@@ -20,6 +20,20 @@
                ReferencedContainer = "container:EverGreen.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2FCE1CFA2C5E57CC00483264"
+               BuildableName = "EverGreenTests.xctest"
+               BlueprintName = "EverGreenTests"
+               ReferencedContainer = "container:EverGreen.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

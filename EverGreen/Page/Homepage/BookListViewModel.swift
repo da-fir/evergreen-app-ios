@@ -70,7 +70,7 @@ final class BookListViewModel : ObservableObject {
                 case .finished:
                     break
                 case .failure(let error):
-                    if let cachedBooks: [BookModel] = self.bookDataService.getCachedBooks() {
+                    if let cachedBooks: [BookModel] = self.bookDataService.getCachedBooks(), !cachedBooks.isEmpty {
                         self.books.append(contentsOf: cachedBooks)
                         self.state = .cached
                     }
@@ -109,18 +109,22 @@ final class BookListViewModel : ObservableObject {
                 return
             }
             
-            // remove book from loved list
-            self.lovedBooks.remove(book.id)
-            self.bookDataService.setLovedBooks(ids: self.lovedBooks)
-            
-            self.books.removeAll(where: { book == $0 })
-            // update cahce books
-            self.bookDataService.setCachedBooks(books: self.books)
+            self.onBookConfirmedDelete(book)
         })
         
     }
     
-    private func getPossibleId() -> Int {
+    func onBookConfirmedDelete(_ book: BookModel) {
+        // remove book from loved list
+        self.lovedBooks.remove(book.id)
+        self.bookDataService.setLovedBooks(ids: self.lovedBooks)
+        
+        self.books.removeAll(where: { book == $0 })
+        // update cahce books
+        self.bookDataService.setCachedBooks(books: self.books)
+    }
+    
+    func getPossibleId() -> Int {
         let id: Int = books.map { $0.id }.max() ?? 0
         return id + 1
     }
@@ -128,7 +132,7 @@ final class BookListViewModel : ObservableObject {
 
 extension BookListViewModel: BookSubmissionActionDelegate {
     func onBookSubmitted(result: BookModel) {
-        self.books.append(result)
-        self.bookDataService.setCachedBooks(books: self.books)
+        bookDataService.setCachedBooks(books: books + [result])
+        books = bookDataService.getCachedBooks() ?? []
     }
 }

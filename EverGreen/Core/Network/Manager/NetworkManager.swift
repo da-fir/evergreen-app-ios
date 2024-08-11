@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-enum APIError: Error {
+enum APIError: Error, Codable {
     case invalidURL
     case requestFailed(String)
     case decodingFailed

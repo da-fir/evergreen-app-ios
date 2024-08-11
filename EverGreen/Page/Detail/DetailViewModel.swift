@@ -2,7 +2,7 @@
 //  DetailViewModel.swift
 //  EverGreen
 //
-//  Created by Destriana Orchidea on 10/08/24.
+//  Created by Darul Firmansyah on 10/08/24.
 //
 
 import Foundation
@@ -16,7 +16,7 @@ class DetailViewModel : ObservableObject {
     
     @Published var isLocal: Bool
     @Published var book: BookModel
-    var fetchedCount: Int = 0 // just for additional info
+    var fetchedCount: Int = 0 // just for additional info, flag of data fetched from server or cache
     
     
     init(book: BookModel, networkManager: NetworkManagerProtocol) {
@@ -24,7 +24,12 @@ class DetailViewModel : ObservableObject {
         self.isLocal = book.isLocal
         self.networkService = networkManager
         
-        // initial load
+        // initial load, only fetch if not local book
+        guard !book.isLocal
+        else {
+            return
+        }
+        
         getBook()
     }
     
@@ -50,7 +55,7 @@ class DetailViewModel : ObservableObject {
             else {
                 return
             }
-            fetchedCount += 1
+            fetchedCount += 1 // flag that Data showed is from API
             self.book = response
         }
         .store(in: &cancellables)

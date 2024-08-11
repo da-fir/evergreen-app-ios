@@ -86,17 +86,29 @@ struct BookListView: View {
             
             HStack {
                 ZStack(alignment: .bottomTrailing) {
-                    AsyncImage(
-                        url: URL(string: book.cover),
-                        content: { image in
+                    if #available(iOS 15.0, *) {
+                        AsyncImage(url: URL(string: book.cover)) { image in
                             image
                                 .resizable()
                                 .scaledToFill()
-                        },
-                        placeholder: {
+                        } placeholder: {
                             ActivityIndicator(isAnimating: true)
-                        })
-                    .padding(24)
+                        }
+                        .padding(24)
+                    } else {
+                        // iOS 13 support
+                        CustomAsyncImage(
+                            url: URL(string: book.cover),
+                            content: { image in
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                            },
+                            placeholder: {
+                                ActivityIndicator(isAnimating: true)
+                            })
+                        .padding(24)
+                    }
                     Button {
                         viewModel.toggleLoved(book: book)
                     } label: {

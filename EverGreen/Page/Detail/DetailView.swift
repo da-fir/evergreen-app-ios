@@ -17,7 +17,7 @@ struct DetailView: View {
             Section {
                 HStack {
                     HStack {
-                        AsyncImage(
+                        CustomAsyncImage(
                             url: URL(string: viewModel.book.cover),
                             content: { image in
                                 image.resizable()

@@ -22,6 +22,9 @@
 		0C52E0E22C66D2E200C2A67F /* BookSubmissionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C52E0E12C66D2E200C2A67F /* BookSubmissionCoordinator.swift */; };
 		2F0D79122C66E85700C9A79E /* Util+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D79112C66E85700C9A79E /* Util+Image.swift */; };
 		2F0D79142C6702A600C9A79E /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D79132C6702A600C9A79E /* DetailViewModel.swift */; };
+		2F0D79162C68C48000C9A79E /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D79152C68C48000C9A79E /* NetworkManagerMock.swift */; };
+		2F0D79192C68C5AF00C9A79E /* BookDataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D79182C68C5AF00C9A79E /* BookDataServiceMock.swift */; };
+		2F0D791B2C68CE6D00C9A79E /* NavigationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D791A2C68CE6D00C9A79E /* NavigationMock.swift */; };
 		2FCE1CE92C5E57CA00483264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE1CE82C5E57CA00483264 /* AppDelegate.swift */; };
 		2FCE1CEB2C5E57CA00483264 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE1CEA2C5E57CA00483264 /* SceneDelegate.swift */; };
 		2FCE1CF22C5E57CC00483264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FCE1CF12C5E57CC00483264 /* Assets.xcassets */; };
@@ -67,6 +70,9 @@
 		0C52E0E12C66D2E200C2A67F /* BookSubmissionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSubmissionCoordinator.swift; sourceTree = "<group>"; };
 		2F0D79112C66E85700C9A79E /* Util+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Util+Image.swift"; sourceTree = "<group>"; };
 		2F0D79132C6702A600C9A79E /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		2F0D79152C68C48000C9A79E /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
+		2F0D79182C68C5AF00C9A79E /* BookDataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDataServiceMock.swift; sourceTree = "<group>"; };
+		2F0D791A2C68CE6D00C9A79E /* NavigationMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMock.swift; sourceTree = "<group>"; };
 		2FCE1CE52C5E57CA00483264 /* EverGreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EverGreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FCE1CE82C5E57CA00483264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FCE1CEA2C5E57CA00483264 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +176,15 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		2F0D79172C68C59F00C9A79E /* Stub */ = {
+			isa = PBXGroup;
+			children = (
+				2F0D79182C68C5AF00C9A79E /* BookDataServiceMock.swift */,
+				2F0D791A2C68CE6D00C9A79E /* NavigationMock.swift */,
+			);
+			path = Stub;
+			sourceTree = "<group>";
+		};
 		2F6235EE2C5F6F700015C2E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,7 +231,9 @@
 		2FCE1CFE2C5E57CC00483264 /* EverGreenTests */ = {
 			isa = PBXGroup;
 			children = (
+				2F0D79172C68C59F00C9A79E /* Stub */,
 				2FCE1CFF2C5E57CC00483264 /* EverGreenTests.swift */,
+				2F0D79152C68C48000C9A79E /* NetworkManagerMock.swift */,
 			);
 			path = EverGreenTests;
 			sourceTree = "<group>";
@@ -428,6 +445,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0D79162C68C48000C9A79E /* NetworkManagerMock.swift in Sources */,
+				2F0D791B2C68CE6D00C9A79E /* NavigationMock.swift in Sources */,
+				2F0D79192C68C5AF00C9A79E /* BookDataServiceMock.swift in Sources */,
 				2FCE1D002C5E57CC00483264 /* EverGreenTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

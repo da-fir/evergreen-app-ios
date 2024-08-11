@@ -12,14 +12,11 @@ protocol BookDataServiceProtocol {
     func setLovedBooks(ids: Set<Int>)
     func getCachedBooks() -> [BookModel]?
     func setCachedBooks(books: [BookModel])
-    func getLocalBooks() -> [BookModel]?
-    func setLocalBooks(books: [BookModel])
 }
 
 final class BookDataService: BookDataServiceProtocol {
     private let kLovedBook: String = "kLovedBook"
     private let kAllBooks: String = "kAllBooks"
-    private let kLocalBooks: String = "kLocalBooks"
     
     private let service: LocalDataServiceProtocol = LocalDataService()
     
@@ -38,13 +35,5 @@ final class BookDataService: BookDataServiceProtocol {
     func getCachedBooks() -> [BookModel]? {
         return (service.getModel(key: kAllBooks, modelType: [BookModel].self) ?? []).sorted(by: { $0.isLocal && !$1.isLocal
         })
-    }
-    
-    func getLocalBooks() -> [BookModel]? {
-        return service.getModel(key: kLocalBooks, modelType: [BookModel].self)
-    }
-    
-    func setLocalBooks(books: [BookModel]) {
-        service.storedModel(key: kLocalBooks, object: books + [])
     }
 }

@@ -15,7 +15,7 @@ struct BookSubmissionView: View {
     @State var title: String = ""
     @State var author: String = ""
     @State var description: String = ""
-    @State var cover: String = "https://picsum.photos/200/300"
+    @State var cover: String = "https://picsum.photos/id/\(Int.random(in: 1...100))/200/300"  // default, to make it easier
     @State var publicationDate: Date = Date()
     
     // predefined

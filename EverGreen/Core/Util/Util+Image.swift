@@ -10,8 +10,17 @@ import SwiftUI
 /// A view that asynchronously loads and displays an image.
 ///
 /// Loading an image from a URL uses the shared URLSession.
-struct AsyncImage<Content> : View where Content : View {
-
+struct CustomAsyncImage<Content> : View, Equatable where Content : View {
+    static func == (lhs: CustomAsyncImage, rhs: CustomAsyncImage) -> Bool {
+        let lhsImage = lhs.image
+        let rhsImage = rhs.image
+        if (lhsImage == nil && rhsImage != nil) || (lhsImage != nil && rhsImage == nil) {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     final class Loader: ObservableObject {
         @Published var data: Data? = nil
         private var cancellables = Set<AnyCancellable>()
@@ -98,6 +107,7 @@ struct AsyncImage<Content> : View where Content : View {
 
 }
 
+// Indicator for image
 struct ActivityIndicator: UIViewRepresentable {
     
     typealias UIView = UIActivityIndicatorView
