@@ -31,7 +31,6 @@ struct HomePageView: View {
                                     .font(.footnote)
                             }
                         }
-                        
                     }
                 }
                 .textCase(nil)
