@@ -7,24 +7,31 @@
 import SwiftUI
 
 struct HomePageView: View {
-    @State var shouldPresentInfoSheet = false
+    @State private var path = NavigationPath()
     @EnvironmentObject var appWatcher: AppWatcher
+    @ObservedObject var viewModel = HomepageViewModel(locationManager: LocationManager(), apiClient: MockApiClient(sendError: false))
     
     var body: some View {
         NavigationStack {
             List  {
                 Section {
-                    Text("Current Location")
+                    if let currentLocationStatusViewAttributes = viewModel.currentLocationStatusViewAttributes {
+                        Text("\(currentLocationStatusViewAttributes.cityName) - \(currentLocationStatusViewAttributes.airStatus)")
+                    }
                 } header: {
                     VStack(alignment: .leading) {
                         Text("Current Location")
                             .font(.title3)
-                        Button {
-                            
-                        } label: {
-                            Text("Location Permission not allowed. Tap here!")
-                                .font(.footnote)
+                        
+                        if viewModel.isAllowedToRequestLocation == false {
+                            Button {
+                                viewModel.goToSettings()
+                            } label: {
+                                Text("Location Permission not allowed. Tap here!")
+                                    .font(.footnote)
+                            }
                         }
+                        
                     }
                 }
                 .textCase(nil)
@@ -42,27 +49,23 @@ struct HomePageView: View {
                 .textCase(nil)
             }
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        shouldPresentInfoSheet = true
-                    } label: {
-                        Image(systemName: "info.square.fill")
-                    }
-                    .sheet(isPresented: $shouldPresentInfoSheet) {
-                        AppInfoSheetView()
-                    }
-                    
-                }
-                
                 ToolbarItem(placement: .principal) {
                     Text("EverGreen ~ AirQ")
                 }
                 
                 if appWatcher.isEligibleToAddMoreCities() {
                     ToolbarItem(placement: .topBarLeading) {
-                        Button {
-                        } label: {
-                            Image(systemName: "plus.square.fill")
+                        NavigationStack(path: $path) {
+                            Button {
+                                path.append("NewView")
+                            } label: {
+                                Image(systemName: "plus.square.fill")
+                            }
+                            .navigationDestination(for: String.self) { view in
+                                if view == "NewView" {
+                                    CitySubmissionView()
+                                }
+                            }
                         }
                     }
                 }
@@ -72,6 +75,11 @@ struct HomePageView: View {
             .toolbarBackground(.visible, for: .navigationBar)
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Home")
+        }
+        .onAppear {
+            Task { @MainActor in
+                await viewModel.requestLocation()
+            }
         }
     }
 }

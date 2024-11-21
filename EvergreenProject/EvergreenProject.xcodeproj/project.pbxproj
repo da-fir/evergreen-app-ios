@@ -10,9 +10,34 @@
 		0C92B23D2CE5E71B00029716 /* EvergreenProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EvergreenProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0C92B2792CEAF9C300029716 /* Exceptions for "EvergreenProject" folder in "EvergreenProject" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+				Modules/AirVisualAPI/Mock/_getCountriesMockResponse.json,
+			);
+			target = 0C92B23C2CE5E71B00029716 /* EvergreenProject */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		0CCAEB1C2CEDCD3B00D68E9A /* Exceptions for "EvergreenProject" folder in "Compile Sources" phase from "EvergreenProject" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 0C92B2392CE5E71B00029716 /* Sources */;
+			membershipExceptions = (
+				Modules/AirVisualAPI/Mock/_getCountriesMockResponse.json,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0C92B23F2CE5E71B00029716 /* EvergreenProject */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0C92B2792CEAF9C300029716 /* Exceptions for "EvergreenProject" folder in "EvergreenProject" target */,
+				0CCAEB1C2CEDCD3B00D68E9A /* Exceptions for "EvergreenProject" folder in "Compile Sources" phase from "EvergreenProject" target */,
+			);
 			path = EvergreenProject;
 			sourceTree = "<group>";
 		};
@@ -252,6 +277,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EvergreenProject/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need you to allow us to get your current location to make App Work";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need you to allow us to get your current location to make App Work";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -291,6 +319,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EvergreenProject/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need you to allow us to get your current location to make App Work";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need you to allow us to get your current location to make App Work";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

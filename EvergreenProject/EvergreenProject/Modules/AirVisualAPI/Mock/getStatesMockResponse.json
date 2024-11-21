@@ -1,0 +1,107 @@
+{
+    "status": "success",
+    "data": [
+        {
+            "state": "Aceh"
+        },
+        {
+            "state": "Bali"
+        },
+        {
+            "state": "Bangka Belitung"
+        },
+        {
+            "state": "Banten"
+        },
+        {
+            "state": "Bengkulu"
+        },
+        {
+            "state": "Central Java"
+        },
+        {
+            "state": "Central Kalimantan"
+        },
+        {
+            "state": "Central Sulawesi"
+        },
+        {
+            "state": "East Java"
+        },
+        {
+            "state": "East Kalimantan"
+        },
+        {
+            "state": "East Nusa Tenggara"
+        },
+        {
+            "state": "Gorontalo"
+        },
+        {
+            "state": "Jakarta"
+        },
+        {
+            "state": "Jambi"
+        },
+        {
+            "state": "Lampung"
+        },
+        {
+            "state": "Maluku"
+        },
+        {
+            "state": "North Kalimantan"
+        },
+        {
+            "state": "North Maluku"
+        },
+        {
+            "state": "North Sulawesi"
+        },
+        {
+            "state": "North Sumatra"
+        },
+        {
+            "state": "Papua"
+        },
+        {
+            "state": "Riau"
+        },
+        {
+            "state": "Riau Islands"
+        },
+        {
+            "state": "South Kalimantan"
+        },
+        {
+            "state": "South Sulawesi"
+        },
+        {
+            "state": "South Sumatra"
+        },
+        {
+            "state": "Southeast Sulawesi"
+        },
+        {
+            "state": "West Java"
+        },
+        {
+            "state": "West Kalimantan"
+        },
+        {
+            "state": "West Nusa Tenggara"
+        },
+        {
+            "state": "West Papua"
+        },
+        {
+            "state": "West Sulawesi"
+        },
+        {
+            "state": "West Sumatra"
+        },
+        {
+            "state": "Yogyakarta"
+        }
+    ]
+}
